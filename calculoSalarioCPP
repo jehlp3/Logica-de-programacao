@@ -1,0 +1,28 @@
+#include <iostream>
+#include <iomanip>
+#include <locale>
+
+int main() {
+    setlocale(LC_ALL, "portuguese");
+    float valorSalario, valorBeneficios, valorImposto = 0;
+
+    std::cout << "Digite o valor do salário: ";
+    std::cin >> valorSalario;
+    std::cout << "Digite o valor dos benefícios: ";
+    std::cin >> valorBeneficios;
+
+    if(valorSalario >= 0 && valorSalario <= 1100) { 
+        valorImposto = valorSalario * 0.05F; 
+    } else if(valorSalario > 1100 && valorSalario <= 2500) {
+        valorImposto = valorSalario * 0.10F; 
+    } else {
+        valorImposto = valorSalario * 0.25F; 
+    }
+
+    std::cout << "Valor imposto: (" << std::fixed << std::setprecision(2) << valorImposto << ")" << std::endl;
+    float saida = valorSalario - valorImposto + valorBeneficios;
+    std::cout << "Saldo salário: " << std::fixed << std::setprecision(2) << saida << std::endl;
+
+    return 0;
+}
+
