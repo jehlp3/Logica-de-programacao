@@ -1,0 +1,36 @@
+package desafio_logica;
+
+import java.util.Scanner;
+
+public class CalculoSalario {
+
+	public static void main(String[] args) {
+		Scanner leitorDeEntradas = new Scanner(System.in);
+		System.out.println("Digite o valor do salário: ");
+		float valorSalario = leitorDeEntradas.nextFloat();
+		System.out.println("Digite o valor dos benefícios: ");
+		float valorBeneficios = leitorDeEntradas.nextFloat();
+
+		float valorImposto = 0;
+		
+		/*
+		 * if(valorSalario >= 0 && valorSalario <= 1100) { 
+		 *      valorImposto = valorSalario * 0.05F; 
+		 * }else if(valorSalario > 1100 && valorSalario <= 2500) {
+		 *      valorImposto = valorSalario * 0.10F; 
+		 * }else {
+		 *      valorImposto = valorSalario * 0.25F; 
+		 * }
+		 */
+		
+		valorImposto = (valorSalario >= 0 && valorSalario <= 1100) ? valorSalario * 0.05F
+				: (valorSalario > 1100 && valorSalario <= 2500) ? valorSalario * 0.10F : valorSalario * 0.25F;
+
+		System.out.println(String.format("Valor imposto: (%.2f) ", valorImposto));
+		float saida = valorSalario - valorImposto + valorBeneficios;
+		System.out.println(String.format("Saldo salário: %.2f", saida));
+		
+		leitorDeEntradas.close();
+	}
+
+}
